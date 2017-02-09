@@ -10,7 +10,7 @@ RUN apt-get update -y -q \
   && rm -rf /var/lib/apt/lists/*
 
 # Clone lagopus source
-RUN git config --global http.proxy $http_proxy
+RUN if [ -n "${http_proxy}" ]; then git config --global http.proxy $http_proxy; fi
 WORKDIR /usr/local/src
 RUN git clone -b v0.2.10 --recursive https://github.com/lagopus/lagopus.git
 
