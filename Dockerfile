@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+ARG LAGOPUS_VERSION=v0.2.10
+
 # Install Required packages
 RUN apt-get update -y -q \
   && apt-get install -y -qq build-essential linux-headers-$(uname -r) \
@@ -12,7 +14,7 @@ RUN apt-get update -y -q \
 # Clone lagopus source
 RUN if [ -n "${http_proxy}" ]; then git config --global http.proxy $http_proxy; fi
 WORKDIR /usr/local/src
-RUN git clone -b v0.2.10 --recursive https://github.com/lagopus/lagopus.git
+RUN git clone -b ${LAGOPUS_VERSION} --recursive https://github.com/lagopus/lagopus.git
 
 # Build and Install
 WORKDIR /usr/local/src/lagopus
@@ -21,4 +23,3 @@ RUN ./configure \
   && make install
 
 CMD ['lagopus']
-
