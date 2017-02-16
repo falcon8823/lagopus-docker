@@ -6,7 +6,7 @@ http://www.lagopus.org/
 
 https://hub.docker.com/r/falcon8823/lagopus-docker/
 
-## How to run Lagpous on Docker?
+## How to run Lagopus on Docker?
 
 - Allocate hugetlbfs to each container on the host.
   - And mount hugetlbfs to each container with `-v` Docker option.
