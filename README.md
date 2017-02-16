@@ -43,3 +43,11 @@ EAL: WARNING: Master core has no memory on local socket!
 
 It may be caused by Docker environment.
 To avoid this, set the `--cpuset-mems=0` Docker option.
+
+
+## Tips: Container networking with `virtio_user` driver
+
+Please refer to following links.
+
+- https://github.com/falcon8823/lagopus/blob/master/docs/how-to-use-virtio-user.md
+- http://dpdk.org/doc/guides/howto/virtio_user_for_container_networking.html
